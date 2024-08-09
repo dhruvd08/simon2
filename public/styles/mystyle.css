@@ -1,0 +1,217 @@
+.splash {
+    margin-top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.logo {
+    width: 33vw;
+}
+
+.title {
+    letter-spacing: 0.1rem;
+    /* width: 13rem; */
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.desc {
+    letter-spacing: 0.5rem;
+    width: 15rem;
+    margin: 5px;
+    text-align: center;
+}
+
+.registration-form-container {
+    margin-top: 5rem;
+    margin-bottom: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-play {
+    background-color: yellowgreen;
+    border: none;
+    box-shadow: 0 3px 4px 0 #000000;
+    height: 4rem;
+    margin-top: 15px;
+    width: 13rem;
+    border-radius: 10px;
+}
+
+.error {
+    color: red;
+    margin-bottom: 0.05rem;
+}
+
+.name-input {
+    width: 12.5rem;
+    height: 2rem;
+}
+
+.modal-body {
+  text-align: left !important;
+}
+
+body {
+  text-align: center;
+}
+
+#level-title {
+  /* font-size: 3rem; */
+  margin-top: 3%;
+}
+
+.game-container {
+  display: block;
+  width: 40%;
+  margin: auto;
+}
+
+.game-btn {
+  margin: 10px;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  border: 5px solid black;
+  border-radius: 20%;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+/* This is my custom css */
+
+body.wrong {
+  background-color: red;
+}
+
+.table-title {
+  padding-left: 0.5rem;
+  height: fit-content;
+  font-weight: bold;
+  background-color: darkgrey;
+}
+
+.table-content {
+  padding-left: 0.5rem;
+  height: fit-content;
+  border-bottom: 1px solid darkgrey;
+  border-left: 1px solid darkgrey;
+}
+
+.grid-container {
+  margin-top: 2rem;
+  text-align: left;
+  padding: 0px 0.1px;
+  border: 2px solid darkgrey;
+  border-radius: 10px;
+  width: 60%;
+  margin-left: 20%;
+  display: grid;
+  gap: 1px;
+  grid-template-columns: 0.5fr 2fr 0.5fr 1.5fr;
+  grid-auto-rows: 0.5fr;
+  margin-bottom: 2rem;
+}
+
+.gold {
+  background-color: #FDDC5C;
+}
+
+.silver {
+  background-color: #d8d8d8;
+}
+
+.bronze {
+  background-color: #ecab69;
+}
+
+.flash {
+  opacity: 0.1;
+}
+
+@media(max-width: 1200px) {
+  .game-container {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+
+  .grid-container {
+    grid-template-columns: 0.5fr 1fr 0.5fr 1.5fr;
+    margin-left: 5%;
+    width: 90%;
+  }
+
+  .table-content {
+    height: auto;
+  }
+
+  .game-btn {
+    margin: 5px 5px;
+    height: 9rem;
+    width: 9rem;
+  }
+
+  .game-row {
+    display: flex;
+  }
+
+  @media(min-width: 700px) {
+    .game-btn {
+      height: 40vw;
+      width: 40vw;
+    }
+  }
+}
+
+@media(min-width: 1200px) {
+    .splash {
+        margin-top: 5%;
+    }
+
+    .registration-form-container {
+        margin-bottom: 5%;
+    }
+
+    .logo {
+        width: 10vw;
+    }
+
+    .menu-container {
+      justify-self: end;
+      /* margin-left: 65vw; */
+    } 
+}

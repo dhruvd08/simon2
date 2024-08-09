@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+
+<div class="splash">
+  <img class="logo" src="images/logo.svg" />
+  <h1 class="title">SIMON</h1>
+  <p class="desc">A MEMORY GAME</p>
+</div>
+
+<div class="registration-form-container">
+
+  <div class="alert alert-danger" role="alert" hidden></div>
+
+
+  <input
+    class="name-input"
+    name="playername"
+    type="text"
+    placeholder="Enter your name"    
+  />
+  <button class="btn-play">PLAY</button>
+  </div>
+
+<script src="scripts/home.js" defer></script>
+
+<%- include("partials/footer.ejs") %>

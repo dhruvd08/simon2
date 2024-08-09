@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+<div class="grid-container" >
+    <% if (scores !== []) { %>
+        <div class="table-title" >Rank</div><div class="table-title" >Name</div><div class="table-title" >Level</div><div class="table-title" >Date</div>
+        <% let i = 1 %>
+        <% for (let score of scores.slice(0, 10)) { %>
+            <div class="rank<%= i %> table-content" ><%= i %></div>
+            <div class="rank<%= i %> table-content" ><%= score.name %></div>
+            <div class="rank<%= i %> table-content" ><%= score.score %></div>
+            <div class="rank<%= i %> table-content" ><%= score.uploadTime %></div>
+            <% i++ %>
+        <% } %>
+    <% } else { %>
+        <p style="grid-column: span 2;" >Nothing to Show</p>
+    <% } %>
+    <script>
+        const firsts = document.querySelectorAll(".rank1");
+        for (let first of firsts) {
+            first.classList.add("gold");
+        }
+
+        const seconds = document.querySelectorAll(".rank2");
+        for (let second of seconds) {
+            second.classList.add("silver");
+        }
+
+        const thirds = document.querySelectorAll(".rank3");
+        for (let third of thirds) {
+            third.classList.add("bronze");
+        }
+    </script>
+</div>
+<%- include("partials/footer.ejs") %>

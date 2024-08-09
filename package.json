@@ -1,0 +1,17 @@
+{
+  "name": "simon",
+  "version": "2.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shree Dave Dhruv Dave",
+  "license": "ISC",
+  "description": "Simon - A Memory Game",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
