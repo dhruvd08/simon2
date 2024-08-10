@@ -5,7 +5,7 @@ import { dirname } from "path";
 import path from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
+console.log(`__directory name is ${__dirname}`);
 
 const app = express();
 const port = 8080;
@@ -14,13 +14,14 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejs.__express); // Add this line to set the templating engine
 app.set("views", path.join(__dirname, "./views")); // Assuming 'views' is in same level as root folder
 
-app.use(express.static("public"));
+//app.use(express.static("public"));
+app.use(exp.static(path.join(__dirname, "/public/")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   console.log("Got a request for index.html");
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "index.html");
 });
 
 app.get("/home", (req, res) => {
