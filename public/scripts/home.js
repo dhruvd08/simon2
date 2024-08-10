@@ -1,6 +1,6 @@
 const playBtn = document.querySelector(".btn-play");
 const alertMsg = document.querySelector(".alert-danger");
-const host = "http://localhost:8080";
+const host = "https://simon2-g1z7ygic8-dhruvd08s-projects.vercel.app";
 
 async function registerPlayer(playerName) {
   try {
