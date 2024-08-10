@@ -2,7 +2,7 @@ if (localStorage.length === 0) {
   window.open("/home", "_self");
 }
 
-const baseURL = "http://localhost:8080";
+const baseURL = "https://simon2.vercel.app";
 const title = document.querySelector("#level-title");
 const navbar = document.querySelector("nav");
 
