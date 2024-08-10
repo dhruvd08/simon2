@@ -19,8 +19,8 @@ function playSound(name) {
 }
 
 async function uploadScore(name, score) {
+  console.log("entered uploadScore");
   const currentDateTime = new Date();
-
   try {
     const response = await fetch(`${baseURL}/score`, {
       method: "POST",
