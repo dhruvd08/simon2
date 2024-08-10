@@ -14,8 +14,7 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejs.__express); // Add this line to set the templating engine
 app.set("views", path.join(__dirname, "./views")); // Assuming 'views' is in same level as root folder
 
-//app.use(express.static("public"));
-app.use(exp.static(path.join(__dirname, "/public/")));
+app.use(express.static("public/"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
