@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "public/index.html");
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 app.get("/home", (req, res) => {
