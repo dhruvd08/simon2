@@ -35,7 +35,7 @@ app.get("/game", (req, res) => {
 app.get("/leaderboard", (req, res) => {
   let scores = [];
   let rankedScores = [];
-  fs.readFile("/var/task/public/data/scores.json", (err, data) => {
+  fs.readFile("/var/task/data/scores.json", (err, data) => {
     if (err) {
       console.error(err);
     } else {
@@ -66,7 +66,7 @@ app.get("/leaderboard", (req, res) => {
 app.post("/score", (req, res) => {
   console.log(req.body);
 
-  fs.readFile("/var/task/public/data/scores.json", "utf-8", (err, data) => {
+  fs.readFile("/var/task/data/scores.json", "utf-8", (err, data) => {
     if (err) {
       console.error(err);
     } else {
@@ -77,7 +77,7 @@ app.post("/score", (req, res) => {
         scores: scores,
       };
 
-      fs.writeFile("/var/task/public/data/scores.json", JSON.stringify(scoresObj), (err) => {
+      fs.writeFile("/var/task/data/scores.json", JSON.stringify(scoresObj), (err) => {
         if (err) {
           console.error(err);
         }
