@@ -5,7 +5,6 @@ import { dirname } from "path";
 import path from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
-console.log(`__directory name is ${__dirname}`);
 
 const app = express();
 const port = 8080;
@@ -24,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/home", (req, res) => {
+  console.log(`__directory name is ${__dirname}`);
   console.log("Got a request for home");
   res.render("home.ejs", { title: "Simon", pageId: "home" });
 });
