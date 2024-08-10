@@ -14,8 +14,6 @@ app.set("view engine", "ejs");
 app.engine("ejs", ejs.__express); // Add this line to set the templating engine
 app.set("views", path.join(__dirname, "./views")); // Assuming 'views' is in same level as root folder
 
-app.set("data", path.join(__dirname, "./data"));
-
 app.use(express.static(__dirname + "/public/"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -37,7 +35,7 @@ app.get("/game", (req, res) => {
 app.get("/leaderboard", (req, res) => {
   let scores = [];
   let rankedScores = [];
-  fs.readFile("scores.json", (err, data) => {
+  fs.readFile("data/scores.json", (err, data) => {
     if (err) {
       console.error(err);
     } else {
@@ -68,7 +66,7 @@ app.get("/leaderboard", (req, res) => {
 app.post("/score", (req, res) => {
   console.log(req.body);
 
-  fs.readFile("scores.json", "utf-8", (err, data) => {
+  fs.readFile("data/scores.json", "utf-8", (err, data) => {
     if (err) {
       console.error(err);
     } else {
@@ -79,7 +77,7 @@ app.post("/score", (req, res) => {
         scores: scores,
       };
 
-      fs.writeFile("scores.json", JSON.stringify(scoresObj), (err) => {
+      fs.writeFile("data/scores.json", JSON.stringify(scoresObj), (err) => {
         if (err) {
           console.error(err);
         }
