@@ -3,8 +3,12 @@
   "version": "2.0.0",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": "20.16.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Shree Dave Dhruv Dave",
