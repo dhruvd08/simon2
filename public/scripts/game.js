@@ -2,7 +2,8 @@ if (localStorage.length === 0) {
   window.open("/home", "_self");
 }
 
-const baseURL = "https://simon2.vercel.app";
+//const baseURL = "https://simon2.vercel.app";
+const baseURL = "http://localhost:8080"
 const title = document.querySelector("#level-title");
 const navbar = document.querySelector("nav");
 
@@ -19,7 +20,6 @@ function playSound(name) {
 }
 
 async function uploadScore(name, score) {
-  console.log("entered uploadScore");
   const currentDateTime = new Date();
   try {
     const response = await fetch(`${baseURL}/score`, {
