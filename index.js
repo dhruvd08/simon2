@@ -12,10 +12,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
+  console.log("Got a request for index.html");
   res.sendFile(__dirname + "/public/index.html");
 });
 
 app.get("/home", (req, res) => {
+  console.log("Got a request for home");
   res.render("home.ejs", { title: "Simon", pageId: "home" });
 });
 
