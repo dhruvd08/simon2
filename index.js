@@ -1,11 +1,17 @@
 import express from "express";
+import ejs from "ejs";
 import fs from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+
 const app = express();
 const port = 8080;
+
+app.set("view engine", "ejs");
+app.engine("ejs", ejs.__express); // Add this line to set the templating engine
+app.set("views", path.join(__dirname, "./views")); // Assuming 'views' is in same level as root folder
 
 app.use(express.static("public"));
 app.use(express.json());
