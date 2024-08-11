@@ -122,22 +122,21 @@ body.wrong {
 .table-title {
   padding-left: 0.5rem;
   height: fit-content;
-  font-weight: bold;
-  background-color: darkgrey;
+  background-color: ivory;
 }
 
 .table-content {
   padding-left: 0.5rem;
   height: fit-content;
-  border-bottom: 1px solid darkgrey;
-  border-left: 1px solid darkgrey;
+  border-bottom: 1px solid ivory;
+  border-left: 1px solid ivory;
 }
 
 .grid-container {
   margin-top: 2rem;
   text-align: left;
   padding: 0px 0.1px;
-  border: 2px solid darkgrey;
+  border: 2px solid ivory;
   border-radius: 10px;
   width: 60%;
   margin-left: 20%;

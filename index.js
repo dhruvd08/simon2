@@ -34,6 +34,9 @@ app.get("/leaderboard", async (req, res) => {
   let rankedScores = [];
   const googleSheetClient = await _getGoogleSheetClient();
   scores = await _getScores(googleSheetClient, sheetId, tabName, range);
+  for (let score of scores) {
+    score[2] = new Date(score[2]).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"})
+  }
   //console.log(rankedScores);
   res.render("leaderboard.ejs", {
     title: "Leaderboard",
