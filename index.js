@@ -74,7 +74,6 @@ async function _getGoogleSheetClient() {
 }
 
 async function _sortSheet(googleSheetClient) {
-  console.log("Entered Sort sheet...");
   const resource = {
     requests: [
       {
@@ -103,7 +102,6 @@ async function _sortSheet(googleSheetClient) {
     spreadsheetId: sheetId,
     resource: resource,
   });
-  //console.log(response);
 }
 
 async function _getScores(googleSheetClient, sheetId, tabName, range) {
