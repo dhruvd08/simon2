@@ -131,14 +131,18 @@ for (const btn of buttons) {
       }
     } else if (level === 0) {
       navbar.classList.add("invisible");
-      nextSequence();
+      setTimeout(() => {
+        nextSequence();
+      }, 100);
     }
   });
 }
 
 document.addEventListener("click", function (event) {
-  if (level === 0 && event.target.tagName === "BODY") {
+  if ((level === 0 && event.target.tagName === "BODY") || (level === 0 && event.target.tagName === "H3")) {
     navbar.classList.add("invisible");
-    nextSequence();
+    setTimeout(() => {
+      nextSequence();
+    }, 100);
   }
 });
