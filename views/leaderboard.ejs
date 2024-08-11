@@ -13,6 +13,7 @@
     <% } else { %>
         <p style="grid-column: span 4;text-align: center;" >Nothing to Show</p>
     <% } %>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" defer ></script>
     <script>
         if (localStorage.length === 0) {
             document.querySelector(".play-link").setAttribute("href", "/home");
@@ -32,6 +33,15 @@
         for (let third of thirds) {
             third.classList.add("bronze");
         }
+
+    setTimeout(() => {
+        confetti({
+          particleCount: 200,
+          spread: 100,
+          origin: { y: 0.6 },
+          disableForReducedMotion: true
+        });
+      }, 500);
     </script>
 </div>
 <%- include("partials/footer.ejs") %>
