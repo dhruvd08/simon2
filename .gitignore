@@ -1,4 +1,4 @@
-simon2-432115-37b7ee736007.json
+# simon2-432115-37b7ee736007.json
 
 # Logs
 logs
@@ -130,3 +130,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+.vercel

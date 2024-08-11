@@ -44,27 +44,11 @@ app.get("/leaderboard", async (req, res) => {
   let rankedScores = [];
   const googleSheetClient = await _getGoogleSheetClient();
   scores = await _getScores(googleSheetClient, sheetId, tabName, range);
-  while (scores.length > 0) {
-    let maxScore = -1;
-    let topPlayer = [];
-    for (let score of scores) {
-      if (Number(score[1]) > maxScore) {
-        maxScore = score[1];
-        topPlayer = score;
-      }
-    }
-    topPlayer[2] =
-      new Date(topPlayer[2]).toLocaleString("en-GB", {
-        timeZone: "IST",
-      }) + " IST";
-    rankedScores.push(topPlayer);
-    scores.splice(scores.indexOf(topPlayer), 1);
-  }
-  console.log(rankedScores);
+  //console.log(rankedScores);
   res.render("leaderboard.ejs", {
     title: "Leaderboard",
     pageId: "lb",
-    scores: rankedScores,
+    scores: scores,
   });
 });
 
@@ -73,7 +57,9 @@ app.post("/score", async (req, res) => {
   const score = req.body;
   const data = [[score.name, score.score, score.uploadTime]];
   const googleSheetClient = await _getGoogleSheetClient();
-  _addScore(googleSheetClient, sheetId, tabName, range, data);
+  await _addScore(googleSheetClient, sheetId, tabName, range, data);
+
+  const response = await _sortSheet(googleSheetClient);
 
   res.send({ statusCode: 200 });
 });
@@ -94,10 +80,43 @@ async function _getGoogleSheetClient() {
   });
 }
 
+async function _sortSheet(googleSheetClient) {
+  console.log("Entered Sort sheet...");
+  const resource = {
+    requests: [
+      {
+        sortRange: {
+          range: {
+            sheetId: 0,
+            startRowIndex: 1,
+            endRowIndex: 100,
+            startColumnIndex: 0,
+            endColumnIndex: 3,
+          },
+
+          sortSpecs: [
+            {
+              dimensionIndex: 1,
+              sortOrder: "DESCENDING",
+            },
+          ],
+        },
+      },
+    ],
+    //responseRanges: ["A2:C11"],
+  };
+
+  const response = await googleSheetClient.spreadsheets.batchUpdate({
+    spreadsheetId: sheetId,
+    resource: resource,
+  });
+  //console.log(response);
+}
+
 async function _getScores(googleSheetClient, sheetId, tabName, range) {
   const res = await googleSheetClient.spreadsheets.values.get({
     spreadsheetId: sheetId,
-    range: `${tabName}!${range}`,
+    range: `${tabName}!A1:C11`,
   });
 
   const scores = res.data.values;
