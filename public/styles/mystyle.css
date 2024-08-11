@@ -173,6 +173,10 @@ body.wrong {
     width: 90%;
   }
 
+  .desc {
+    letter-spacing: 0.2rem;
+  }
+
   .grid-container {
     grid-template-columns: 0.5fr 1fr 0.5fr 1.5fr;
     margin-left: 5%;

@@ -14,6 +14,10 @@
         <p style="grid-column: span 4;text-align: center;" >Nothing to Show</p>
     <% } %>
     <script>
+        if (localStorage.length === 0) {
+            document.querySelector(".play-link").setAttribute("href", "/home");
+        }
+
         const firsts = document.querySelectorAll(".rank1");
         for (let first of firsts) {
             first.classList.add("gold");
