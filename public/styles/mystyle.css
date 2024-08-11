@@ -111,6 +111,10 @@ body {
 
 /* This is my custom css */
 
+.nav-item {
+  text-align: left;
+}
+
 body.wrong {
   background-color: red;
 }
