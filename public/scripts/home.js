@@ -8,7 +8,7 @@ playBtn.addEventListener("click", () => {
     alertMsg.removeAttribute("hidden");
   } else {
     alertMsg.setAttribute("hidden", true);
-    localStorage.setItem("currentPlayer", playerName);
+    localStorage.setItem("currentPlayer", playerName.trim());
     window.open("/game", "_self");
     //registerPlayer(playerName);
   }
