@@ -1,37 +1,27 @@
 import express from "express";
-import ejs from "ejs";
 import fs from "fs";
 import { google } from "googleapis";
-import { dirname } from "path";
 import path from "path";
-import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-const port = 8080;
+const port = process.port || 8080;
 
 const sheetId = "1Bclbev44BoVoBnjq3VRsj7xSiVZNz1glAYr8NA2hoTg";
 const tabName = "score";
 const range = "A:C";
-const serviceAccountKeyFile = "./simon2-432115-37b7ee736007.json";
+const serviceAccountKeyFile = path.join(process.cwd(), "/simon2-432115-37b7ee736007.json");
 const scope = "https://www.googleapis.com/auth/spreadsheets";
 
-app.set("view engine", "ejs");
-app.engine("ejs", ejs.__express); // Add this line to set the templating engine
-app.set("views", path.join(__dirname, "./views")); // Assuming 'views' is in same level as root folder
-
-app.use(express.static(__dirname + "/public/"));
+app.use(express.static(path.join(process.cwd() + "/public/")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.get("/", (req, res) => {
-  console.log("Got a request for index.html");
   res.sendFile("index.html");
 });
 
 app.get("/home", (req, res) => {
-  console.log(`__directory name is ${__dirname}`);
-  console.log("Got a request for home");
   res.render("home.ejs", { title: "Simon", pageId: "home" });
 });
 
