@@ -17,11 +17,10 @@ playBtn.addEventListener("click", () => {
   if (playerName === "") {
     alertMsg.textContent = "Player name cannot be blank.";
     alertMsg.removeAttribute("hidden");
-  } 
-  else if (!allLetter(playerName)) {
-    alertMsg.textContent = "Player name can only have alphabets.";
-    alertMsg.removeAttribute("hidden");}
-  else {
+  } else if (!allLetter(playerName)) {
+    alertMsg.textContent = "Player name cannot have special characters.";
+    alertMsg.removeAttribute("hidden");
+  } else {
     alertMsg.setAttribute("hidden", true);
     localStorage.setItem("currentPlayer", playerName);
     window.open("/game", "_self");
