@@ -16,7 +16,8 @@ playBtn.addEventListener("click", () => {
   if (playerName === "") {
     alertMsg.textContent = "Player name cannot be blank.";
     alertMsg.removeAttribute("hidden");
-  }else if (!allLetter(playerName)) {
+  } 
+  else if (!allLetter(playerName)) {
     alertMsg.textContent = "Player name can only have alphabets.";
     alertMsg.removeAttribute("hidden");}
   else {
