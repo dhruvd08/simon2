@@ -4,7 +4,7 @@ import { google } from "googleapis";
 import path from "path";
 
 const app = express();
-const port = process.port || 8080;
+const port = process.env.PORT || 8080;
 
 const sheetId = "1Bclbev44BoVoBnjq3VRsj7xSiVZNz1glAYr8NA2hoTg";
 const tabName = "score";
