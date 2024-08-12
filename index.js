@@ -81,7 +81,7 @@ async function _sortSheet(googleSheetClient) {
           range: {
             sheetId: 0,
             startRowIndex: 1,
-            endRowIndex: 5000,
+            endRowIndex: 3000,
             startColumnIndex: 0,
             endColumnIndex: 3,
           },
