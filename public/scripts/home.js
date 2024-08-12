@@ -18,7 +18,7 @@ playBtn.addEventListener("click", () => {
     alertMsg.removeAttribute("hidden");
   } 
   else if (!allLetter(playerName)) {
-    alertMsg.textContent = "Player name can only have alphabets.";
+    alertMsg.textContent = "Player name can only have alphabets - No spaces.";
     alertMsg.removeAttribute("hidden");}
   else {
     alertMsg.setAttribute("hidden", true);
