@@ -45,7 +45,6 @@ app.get("/leaderboard", async (req, res) => {
 });
 
 app.post("/score", async (req, res) => {
-  //console.log(req.body);
   const score = req.body;
   const data = [[score.name, score.score, score.uploadTime]];
   const googleSheetClient = await _getGoogleSheetClient();
