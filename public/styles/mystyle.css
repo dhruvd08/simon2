@@ -9,6 +9,10 @@
   visibility: hidden;
 }
 
+.alert-primary {
+  border-radius: 10px !important;
+}
+
 .logo {
     width: 33vw;
 }
