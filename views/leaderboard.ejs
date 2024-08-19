@@ -5,9 +5,9 @@
         <% let i = 1 %>
         <% for (let score of scores.slice(0, 10)) { %>
             <div class="rank<%= i %> table-content" ><%= i %></div>
-            <div class="rank<%= i %> table-content" ><%= score[0] %></div>
-            <div class="rank<%= i %> table-content" ><%= score[1] %></div>
-            <div class="rank<%= i %> table-content" ><%= score[2] %></div>
+            <div class="rank<%= i %> table-content" ><%= score.name %></div>
+            <div class="rank<%= i %> table-content" ><%= score.score %></div>
+            <div class="rank<%= i %> table-content" ><%= score.upload_time %></div>
             <% i++ %>
         <% } %>
     <% } else { %>
