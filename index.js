@@ -86,8 +86,8 @@ app.post("/score", async (req, res) => {
       const greaterPercentage =
         (greaterScoreCount.rows[0].count / totalScoreCount.rows[0].count) * 100;
       msg = `Only <strong>${Math.round(
-        greaterPercentage
-      )}%</strong> have gotten this far. Keep going!`;
+        greaterPercentage * 100
+      ) / 100}%</strong> have gotten this far. Keep going!`;
     }
   }
 
