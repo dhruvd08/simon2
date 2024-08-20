@@ -3,7 +3,7 @@ if (localStorage.length === 0) {
 }
 
 const baseURL = "https://simon-djom.onrender.com";
-//const baseURL = "http://localhost:8080"
+//const baseURL = "http://localhost:8080";
 const title = document.querySelector("#level-title");
 const navbar = document.querySelector("nav");
 
@@ -48,10 +48,23 @@ async function uploadScore(name, score) {
 
 async function gameOver() {
   navbar.classList.remove("invisible");
-    
-  const response = await uploadScore(document.querySelector("#playerName").textContent, level - 1);
-  alertPrompt.innerHTML = `You got to Level <strong>${--level}</strong>.<br/>${response}`;
 
+  if (level !== 1) {
+    const response = await uploadScore(
+      document.querySelector("#playerName").textContent,
+      level - 1
+    );
+    alertPrompt.innerHTML = `You got to Level <strong>${--level}</strong>.<br/>${response}`;
+  } else {
+    let motivationalMsgs = [
+      "Don't Give Up!",
+      "Keep Trying"
+    ];
+
+    alertPrompt.innerHTML = `${
+      motivationalMsgs[Math.floor(Math.random() * motivationalMsgs.length)]
+    }<br>Check how to play <a data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">here</a>.`;
+  }
   title.textContent = "GAME OVER! TAP TO RESTART";
   userClickedPattern = [];
   gamePattern = [];
@@ -63,7 +76,6 @@ async function gameOver() {
   setTimeout(function () {
     body.classList.remove("wrong");
   }, 200);
-
 
   alertPrompt.classList.remove("invisible");
 }
@@ -146,7 +158,10 @@ for (const btn of buttons) {
 }
 
 document.addEventListener("click", function (event) {
-  if ((level === 0 && event.target.tagName === "BODY") || (level === 0 && event.target.tagName === "H3")) {
+  if (
+    (level === 0 && event.target.tagName === "BODY") ||
+    (level === 0 && event.target.tagName === "H3")
+  ) {
     navbar.classList.add("invisible");
     alertPrompt.classList.add("invisible");
     setTimeout(() => {

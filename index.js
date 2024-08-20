@@ -97,6 +97,7 @@ app.post("/score", async (req, res) => {
       [score.name, score.score, score.uploadTime]
     );
   }
+
   res.send({ statusCode: 200, msg: msg });
 });
 
